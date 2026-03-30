@@ -14,35 +14,17 @@ typedef struct
 float model(linear_model *w, float iv, linear_model *b);
 void train(float iv[], float dv[]);
 void mean_squared_error(); // cost function to measure how wrong model is
-void gradient_measure();
 void normalize();
 void json_to_array();
 void adjust_weight_gradient();
 void adjust_bias_gradient();
 void gradient_descent(); // minimizes error
 
-float model(linear_model *w, float iv, linear_model *b)
-{
-}
-
-void train(float iv[], float dv[])
-{
-    linear_model *w = 1;
-    linear_model *b = 1;
-    float ive = 10.4;
-    model(w, ive, b); // This will output the predicted dependent variable, after that just compare
-    measure_error();
-    gradient_measure();
-
-    adjust_w();
-    adjust_b();
-}
-
 void normalize()
 {
 }
 
-void measure_error()
+void mean_squared_error()
 {
 }
 
@@ -59,6 +41,29 @@ void adjust_weight_gradient()
 }
 void adjust_bias_gradient()
 {
+}
+
+void gradient_descent()
+{
+    void adjust_weight_gradient();
+    void adjust_bias_gradient();
+}
+
+float model(linear_model *w, float iv, linear_model *b)
+{
+}
+
+void train(float iv[], float dv[])
+{
+    // We need to keep looping until Low cost/error output, Gradients are small, or Max number of iterations (you pick)
+
+    linear_model *w = 1;
+    linear_model *b = 1;
+    float ive = 10.4;
+    normalize();          // Normalize data
+    model(w, ive, b);     // This will output the predicted dependent variable, after that just compare
+    mean_squared_error(); // Cost function
+    gradient_descent();   // Adjusting w and b
 }
 
 void main()
