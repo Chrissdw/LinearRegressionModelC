@@ -13,12 +13,13 @@ typedef struct
 
 float model(linear_model *w, float iv, linear_model *b);
 void train(float iv[], float dv[]);
-void measure_error();
+void mean_squared_error(); // cost function to measure how wrong model is
 void gradient_measure();
 void normalize();
 void json_to_array();
-void adjust_w();
-void adjust_b();
+void adjust_weight_gradient();
+void adjust_bias_gradient();
+void gradient_descent(); // minimizes error
 
 float model(linear_model *w, float iv, linear_model *b)
 {
@@ -53,10 +54,10 @@ void json_to_array()
 {
 }
 
-void adjust_w()
+void adjust_weight_gradient()
 {
 }
-void adjust_b()
+void adjust_bias_gradient()
 {
 }
 
