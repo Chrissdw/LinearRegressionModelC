@@ -19,9 +19,67 @@ void json_to_array();
 void adjust_weight_gradient();
 void adjust_bias_gradient();
 void gradient_descent(); // minimizes error
+void min_max_scaling();
+void z_score();
+void robust_scaling();
+void check_outliers();
+void check_bounds();
 
+float check_outliers()
+{
+    float Q3;
+    float Q1;
+
+    float IQR = Q3 - Q1;
+
+    float lower_quartile = Q1 - (1.5 * IQR);
+    float higher_quartile = Q3 + (1.5 * IQR);
+
+    for (int i = 0; i < 10; i++)
+    {
+        // Go through array, if value is less than lower_quartile or if value is greater than higher_quartile it is an outlier
+    }
+
+    return 0.0;
+}
+
+bool check_bounds()
+{
+    return false;
+}
+
+void min_max_scaling()
+{
+}
+void z_score()
+{
+}
+void robust_scaling()
+{
+}
 void normalize()
 {
+    // if a lot of outliers use Robust Scaling, else if it is bounded data use Min-Max Scaling, else just do Z-score
+    float dataset_size = 0;
+    float outliers_threshold = 0.05;
+
+    if (dataset_size < 50)
+    {
+        outliers_threshold = 0.1;
+    }
+
+    if (check_outliers() >= outliers_threshold)
+    {
+        void robust_scaling();
+    }
+    else if (check_bounds())
+    {
+        void min_max_scaling();
+    }
+    else
+    {
+        void z_score();
+    }
 }
 
 void mean_squared_error()
@@ -83,5 +141,8 @@ void main()
     float y[1];
 
     json_to_array();
+
+    // Let's use test data first, maybe age to salary
+
     train(x, y);
 }
