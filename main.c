@@ -115,7 +115,7 @@ void train(float iv[], float dv[])
 {
     // We need to keep looping until Low cost/error output, Gradients are small, or Max number of iterations (you pick)
 
-    linear_model *w = 1;
+    linear_model *w = 11;
     linear_model *b = 1;
     float ive = 10.4;
     normalize();          // Normalize data
