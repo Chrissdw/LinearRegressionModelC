@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 typedef struct
 {
@@ -22,8 +23,8 @@ void gradient_descent(); // minimizes error
 void min_max_scaling();
 void z_score();
 void robust_scaling();
-void check_outliers();
-void check_bounds();
+float check_outliers();
+bool has_bounds();
 
 float check_outliers()
 {
@@ -43,13 +44,20 @@ float check_outliers()
     return 0.0;
 }
 
-bool check_bounds()
+bool has_bounds()
 {
+
     return false;
 }
 
-void min_max_scaling()
+void min_max_scaling(float min, float max)
 {
+    // Loop for each value in the data set
+    float range = max - min;
+    float data_value = 0.1;
+    float result = (data_value - min) / range;
+
+    // return an array with updated values
 }
 void z_score()
 {
