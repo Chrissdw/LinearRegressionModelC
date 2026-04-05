@@ -3,7 +3,9 @@
 
 typedef struct
 {
-    float independent_variables, dependent_variables[];
+    float *independent_variable_data, *dependent_variable_data;
+    float min, max, median, IQR;
+    int size;
 
 } data;
 
@@ -28,13 +30,15 @@ bool has_bounds();
 
 float check_outliers()
 {
+    data data;
+
     float Q3;
     float Q1;
 
-    float IQR = Q3 - Q1;
+    data.IQR = Q3 - Q1;
 
-    float lower_quartile = Q1 - (1.5 * IQR);
-    float higher_quartile = Q3 + (1.5 * IQR);
+    float lower_quartile = Q1 - (1.5 * data.IQR);
+    float higher_quartile = Q3 + (1.5 * data.IQR);
 
     for (int i = 0; i < 10; i++)
     {
@@ -64,6 +68,24 @@ void z_score()
 }
 void robust_scaling()
 {
+    data data;
+
+    float *temparray = malloc(data.size * sizeof(float));
+
+    if (data.size % 2 == 0)
+    {
+    }
+    else
+    {
+        data.median =
+    }
+
+    // for each data in the array
+
+    float data_value = 1.1;
+
+    data_value -= data.median;
+    data_value /= data.IQR;
 }
 void normalize()
 {
