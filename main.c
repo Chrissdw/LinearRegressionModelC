@@ -65,6 +65,28 @@ void min_max_scaling(float min, float max)
 }
 void z_score()
 {
+    data data;
+    // Finding mean
+    float sum;
+    for (int i = 0; i < data.size; i++)
+    {
+    }
+
+    float std_deviation;
+    float std_deviation_sum;
+    float mean = sum / data.size;
+    // loop for each value in the data set
+    float data_value = 0.1;
+    data_value -= mean;
+
+    // loop for finding std deviation
+    std_deviation = data_value - mean;
+    std_deviation *= std_deviation;
+    std_deviation_sum += std_deviation;
+    // end loop
+    std_deviation = sqrt(std_deviation_sum / data.size);
+
+    data_value /= std_deviation;
 }
 void robust_scaling()
 {
